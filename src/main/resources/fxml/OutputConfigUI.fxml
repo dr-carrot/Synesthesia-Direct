@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="synesthesia.direct.OutputConfigUIController">
+   <children>
+      <VBox layoutX="98.0" layoutY="70.0" AnchorPane.leftAnchor="14.0">
+         <children>
+            <VBox alignment="CENTER" prefWidth="100.0">
+               <children>
+                  <Label text="Smoother" />
+                  <TextField fx:id="smootherFieldx" />
+                  <Slider fx:id="smootherSliderx" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefWidth="100.0">
+               <children>
+                  <Label text="Factor" />
+                  <TextField fx:id="factorFieldx" />
+                  <Slider fx:id="factorSliderx" blockIncrement="1.0" max="10.0" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefWidth="100.0">
+               <children>
+                  <Label text="Jumper" />
+                  <TextField fx:id="jumperFieldx" />
+                  <Slider fx:id="jumperSliderx" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" maxWidth="120.0">
+               <children>
+                  <Label fx:id="trailText" text="Trailing Character" />
+                  <TextField fx:id="trailChar" />
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+      <ChoiceBox fx:id="algoChooser" layoutX="225.0" layoutY="90.0" prefWidth="150.0" />
+      <VBox alignment="TOP_CENTER" layoutX="225.0" layoutY="175.0" prefHeight="104.0" prefWidth="150.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleOpenGradientEditor" prefHeight="1.0" prefWidth="105.0" text="Gradient" />
+            <Rectangle fx:id="gradientBox" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="31.0" stroke="BLACK" strokeType="INSIDE" width="358.0" />
+         </children>
+      </VBox>
+      <HBox alignment="CENTER_RIGHT" layoutX="232.0" layoutY="282.0" spacing="16.0">
+         <children>
+            <SplitMenuButton mnemonicParsing="false" onAction="#handleSaveFX" text="Save">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleSaveFX" text="Save default for current song" />
+              </items>
+            </SplitMenuButton>
+            <Button mnemonicParsing="false" onAction="#handleLoadFX" text="Load" />
+            <Button mnemonicParsing="false" onAction="#handleCLose" prefWidth="64.0" text="Close" />
+            <Button mnemonicParsing="false" onAction="#handleApply" prefWidth="64.0" text="Apply" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

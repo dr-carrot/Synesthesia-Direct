@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="synesthesia.direct.RGBEffectControllerController">
+   <children>
+      <TabPane layoutX="14.0" layoutY="14.0" prefHeight="378.0" prefWidth="581.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="47.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Gradient">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle fx:id="gradBox" arcHeight="5.0" arcWidth="5.0" height="38.0" layoutX="14.0" layoutY="176.0" stroke="BLACK" strokeType="INSIDE" width="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <SplitPane dividerPositions="0.5" layoutX="186.0" layoutY="74.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <VBox prefHeight="237.0" prefWidth="281.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="40.0" prefWidth="281.0" spacing="4.0">
+                                             <children>
+                                                <Label text="Cycle Time (ms):" />
+                                                <TextField fx:id="timeField" prefHeight="31.0" prefWidth="102.0" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <CheckBox fx:id="reverse" mnemonicParsing="false" text="Reverse Cycle When Complete" />
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="40.0" prefWidth="200.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" onAction="#handleLoadGradient" text="Change Gradient" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <Label layoutX="119.0" layoutY="4.0" text="Config" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <Label layoutX="109.0" layoutY="4.0" text="Hardware" />
+                                    <VBox layoutX="91.0" layoutY="30.0" prefHeight="237.0" prefWidth="281.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="40.0" prefWidth="281.0" spacing="4.0">
+                                             <children>
+                                                <Label fx:id="termLabel" text="Terminal" />
+                                                <TextField fx:id="termField" prefHeight="31.0" prefWidth="102.0" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Untitled Tab 2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <HBox alignment="BOTTOM_RIGHT" layoutX="279.0" layoutY="383.0" prefHeight="43.0" prefWidth="200.0" spacing="7.0" AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="7.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleClose" text="Close" />
+            <Button mnemonicParsing="false" onAction="#handleApply" text="OK" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="synesthesia.direct.AudioGraphController">
+   <children>
+      <ScatterChart fx:id="chart" animated="false" disable="true" layoutX="50.0" verticalGridLinesVisible="false" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <xAxis>
+          <CategoryAxis animated="false" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis animated="false" autoRanging="false" lowerBound="-100.0" minorTickCount="2" minorTickLength="10.0" side="LEFT" tickLabelGap="8.0" tickLength="4.0" tickUnit="20.0" />
+        </yAxis>
+      </ScatterChart>
+      <Path fx:id="linePath" fill="TRANSPARENT" layoutX="157.0" layoutY="49.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="49.0" />
+   </children>
+</AnchorPane>

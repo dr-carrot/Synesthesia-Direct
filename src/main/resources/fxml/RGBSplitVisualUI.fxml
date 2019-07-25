@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#swapBackground" prefHeight="112.0" prefWidth="318.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="synesthesia.direct.RGBSplitVisualUIController">
+   <children>
+      <Rectangle fx:id="rect" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="112.0" layoutX="-44.0" layoutY="-19.0" stroke="BLACK" strokeType="INSIDE" width="318.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Ellipse fx:id="red" fill="DODGERBLUE" layoutX="50.0" layoutY="60.0" radiusX="50.0" radiusY="50.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="220.0" AnchorPane.topAnchor="6.0" />
+      <Ellipse fx:id="green" fill="DODGERBLUE" layoutX="156.0" layoutY="64.0" radiusX="50.0" radiusY="50.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="109.0" AnchorPane.rightAnchor="109.0" AnchorPane.topAnchor="6.0" />
+      <Ellipse fx:id="blue" fill="DODGERBLUE" layoutX="259.0" layoutY="56.0" radiusX="50.0" radiusY="50.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="212.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="6.0" />
+   </children>
+</AnchorPane>

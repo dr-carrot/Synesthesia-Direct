@@ -1,0 +1,18 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 5, 2018, 4:51:21 PM
+    Author     : 'Aaron Lomba'
+*/
+
+.slider .track {
+    /*-fx-background-color: null;*/
+    -fx-pref-height: 20px;
+    -fx-background-insets: 0; 
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+    -fx-border-insets: 0;
+}

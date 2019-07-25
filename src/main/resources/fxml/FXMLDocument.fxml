@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="synesthesia.direct.FXMLDocumentController">
+    <children>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <MenuBar layoutY="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Save..." />
+                  <MenuItem mnemonicParsing="false" text="Load..." />
+                  <Menu mnemonicParsing="false" text="Recent">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                    </items>
+                  </Menu>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleLaunchGradientController" text="Gradient Editor" />
+                  <Menu mnemonicParsing="false" text="Mode">
+                     <items>
+                        <CheckMenuItem fx:id="syn" mnemonicParsing="false" text="Synesthesia" />
+                        <CheckMenuItem fx:id="eff" mnemonicParsing="false" text="Effects" />
+                        <CheckMenuItem fx:id="slv" mnemonicParsing="false" text="Slave" />
+                     </items>
+                  </Menu>
+               </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Advanced">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleLaunchGraph" text="Open graphic analyzer" />
+                  <Menu mnemonicParsing="false" text="Integration">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#handleSpotifyIntegration" text="Spotify" />
+                    </items>
+                  </Menu>
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane fx:id="tPane" layoutY="31.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0">
+        <tabs>
+          <Tab fx:id="inputTab" closable="false" text="Input">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="inputs" layoutX="14.0" layoutY="14.0" prefHeight="375.0" prefWidth="589.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab closable="false" text="Devices">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.5" layoutX="181.0" layoutY="107.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <ListView fx:id="devices" layoutX="58.0" layoutY="104.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="36.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <contextMenu>
+                                          <ContextMenu>
+                                            <items>
+                                              <MenuItem mnemonicParsing="false" onAction="#handleAddPseudoport" text="Add pseudoport" />
+                                            </items>
+                                          </ContextMenu>
+                                       </contextMenu></ListView>
+                                    <Button layoutY="362.0" mnemonicParsing="false" onAction="#handleOutputRefresh" text="Refresh" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <VBox fx:id="outputVBox" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children></AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab closable="false" text="Output">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="allOutputList" prefHeight="388.0" prefWidth="616.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="spotifyTab" text="Spotify">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fx:id="spotifyAlbumImage" fitHeight="150.0" fitWidth="150.0" layoutX="14.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="14.0" />
+                        <VBox layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="100.0" spacing="15.0" AnchorPane.bottomAnchor="171.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+                           <children>
+                              <Button mnemonicParsing="false" text="Advanced" />
+                              <Button mnemonicParsing="false" text="????" />
+                              <Button mnemonicParsing="false" onAction="#handleSpotifyLogout" text="Logout" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" layoutX="114.0" prefHeight="362.0" prefWidth="305.0" spacing="8.0" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="114.0" AnchorPane.rightAnchor="221.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label text="Track:" />
+                              <Label fx:id="spotName" text="Label" />
+                              <Label fx:id="spotArtistTitle" text="Artist:" />
+                              <Label fx:id="spotArtist" text="Label" />
+                              <Label fx:id="spotAlbumTitle" text="Album:" />
+                              <Label fx:id="spotAlbum" text="Label" />
+                           </children>
+                        </VBox>
+                        <TableView fx:id="spotDatView" layoutX="419.0" prefHeight="379.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="spotDatKey" prefWidth="94.0" text="Key" />
+                            <TableColumn fx:id="spotDatVal" prefWidth="105.0" text="Value" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <ProgressIndicator fx:id="busyIndicator" layoutX="14.0" layoutY="454.0" prefHeight="24.0" prefWidth="24.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+      <Label fx:id="busyText" layoutX="40.0" layoutY="458.0" prefHeight="21.0" prefWidth="594.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="0.0" />
+    </children>
+</AnchorPane>
