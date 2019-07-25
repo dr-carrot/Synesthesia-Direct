@@ -1,1 +1,0 @@
-# Synesthesia-Direct
