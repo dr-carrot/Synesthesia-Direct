@@ -5,9 +5,6 @@
  */
 package synesthesia.direct;
 
-import com.wrapper.spotify.exceptions.SpotifyWebApiException;
-import com.wrapper.spotify.model_objects.miscellaneous.AudioAnalysis;
-import com.wrapper.spotify.model_objects.specification.AudioFeatures;
 import effects.simple.EffectManager;
 import java.awt.Desktop;
 import java.io.File;
@@ -86,6 +83,8 @@ import jssc.SerialPort;
 import jssc.SerialPortException;
 import jssc.SerialPortList;
 import output.*;
+import se.michaelthelin.spotify.model_objects.miscellaneous.AudioAnalysis;
+import se.michaelthelin.spotify.model_objects.specification.AudioFeatures;
 import settings.Settings;
 import spotify.LoginState;
 import spotify.PlayingData;
@@ -362,7 +361,6 @@ public class FXMLDocumentController implements Initializable {
                                                                     getPlayingContext().
                                                                     get().
                                                                     getItem().
-                                                                    getAlbum().
                                                                     getUri()));
                                                 } catch (URISyntaxException | IOException ex) {
                                                 }
@@ -378,7 +376,6 @@ public class FXMLDocumentController implements Initializable {
                                                                     getPlayingContext().
                                                                     get().
                                                                     getItem().
-                                                                    getArtists()[0].
                                                                     getUri()));
                                                 } catch (URISyntaxException | IOException ex) {
                                                 }
@@ -392,7 +389,7 @@ public class FXMLDocumentController implements Initializable {
                                                         getPlayingArtists().
                                                         get().toString().
                                                         length() - 1));
-                                com.wrapper.spotify.model_objects.specification.Image albImg = spotifyMaster.
+                                se.michaelthelin.spotify.model_objects.specification.Image albImg = spotifyMaster.
                                         getUserStatus().nextImage();
                                 spotAlbum.setText(npd.getPlayingAlbum().get());
                                 Image alb = new Image(albImg.
@@ -898,7 +895,7 @@ public class FXMLDocumentController implements Initializable {
         spotifyAlbumImage.setOnMouseClicked(( me ) -> {
             if (me.getClickCount() == 2) {
                 try {
-                    com.wrapper.spotify.model_objects.specification.Image albImg = spotifyMaster.
+                    se.michaelthelin.spotify.model_objects.specification.Image albImg = spotifyMaster.
                             getUserStatus().nextImage();
                     Image nwImg = new Image(albImg.
                             getUrl(), spotifyAlbumImage.

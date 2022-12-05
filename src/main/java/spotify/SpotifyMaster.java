@@ -5,11 +5,6 @@
  */
 package spotify;
 
-import com.wrapper.spotify.SpotifyApi;
-import com.wrapper.spotify.SpotifyHttpManager;
-import com.wrapper.spotify.exceptions.SpotifyWebApiException;
-import com.wrapper.spotify.model_objects.credentials.AuthorizationCodeCredentials;
-import com.wrapper.spotify.requests.authorization.authorization_code.AuthorizationCodeUriRequest;
 import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.File;
@@ -35,6 +30,11 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import org.apache.hc.core5.http.ParseException;
+import se.michaelthelin.spotify.SpotifyApi;
+import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
+import se.michaelthelin.spotify.model_objects.credentials.AuthorizationCodeCredentials;
+import se.michaelthelin.spotify.requests.authorization.authorization_code.AuthorizationCodeUriRequest;
 import settings.Settings;
 //import javafxapplication3.Utilities;
 import javafx.concurrent.Task;
@@ -332,7 +332,7 @@ public class SpotifyMaster {
      * countdown.
      */
     @Deprecated
-    private void loginPart2() throws IOException, SpotifyWebApiException {
+    private void loginPart2() throws IOException, SpotifyWebApiException, ParseException {
         AuthorizationCodeCredentials acc = globalApi.authorizationCode(authCode).
                 build().execute();
         accessToken = acc.getAccessToken();

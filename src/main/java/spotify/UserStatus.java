@@ -5,11 +5,6 @@
  */
 package spotify;
 
-import com.wrapper.spotify.exceptions.SpotifyWebApiException;
-import com.wrapper.spotify.exceptions.detailed.TooManyRequestsException;
-import com.wrapper.spotify.model_objects.miscellaneous.CurrentlyPlayingContext;
-import com.wrapper.spotify.model_objects.specification.ArtistSimplified;
-import com.wrapper.spotify.model_objects.specification.Image;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.logging.Level;
@@ -27,6 +22,13 @@ import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
+import org.apache.hc.core5.http.ParseException;
+import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
+import se.michaelthelin.spotify.exceptions.detailed.TooManyRequestsException;
+import se.michaelthelin.spotify.model_objects.miscellaneous.CurrentlyPlayingContext;
+import se.michaelthelin.spotify.model_objects.specification.ArtistSimplified;
+import se.michaelthelin.spotify.model_objects.specification.Image;
+import se.michaelthelin.spotify.model_objects.specification.Track;
 
 /**
  *
@@ -145,20 +147,22 @@ public class UserStatus {
 
     }
 
-    public PlayingData querySet() throws IOException, SpotifyWebApiException {
+    public PlayingData querySet() throws IOException, SpotifyWebApiException, ParseException {
         CurrentlyPlayingContext curr = master.getApi().getInformationAboutUsersCurrentPlayback().build().execute();
         PlayingData data = new PlayingData();
         try {
+            Track trackData = master.getApi().getTrack(curr.getItem().getId()).build().execute();
             data.getPlayingTrack().set(curr.getItem().getName());
             data.getPlayingId().set(curr.getItem().getId());
-            data.getPlayingAlbum().set(curr.getItem().getAlbum().getName());
-            data.getPlayingArtists().set(Arrays.stream(curr.getItem().getArtists()).map(ArtistSimplified::getName).collect(Collectors.toList()));
+            data.getPlayingAlbum().set(trackData.getAlbum().getName());
+            data.getPlayingArtists().set(Arrays.stream(trackData.getArtists()).map(ArtistSimplified::getName).collect(Collectors.toList()));
             data.getIsPlaying().set(curr.getIs_playing());
             data.getPlaying().set(curr);
             //data.setImages(curr.getItem().getAlbum().getImages());
 
         } catch (NullPointerException e) {
             //System.err.println("query set wa null?");
+            e.printStackTrace();
             throw new SpotifyWebApiException("Unable to retrieve data from spotify!");
         }
         return data;

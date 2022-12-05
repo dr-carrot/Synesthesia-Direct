@@ -6,11 +6,6 @@
 package spotify;
 
 import com.sun.javafx.scene.control.skin.VirtualFlow;
-import com.wrapper.spotify.enums.Modality;
-import com.wrapper.spotify.model_objects.miscellaneous.AudioAnalysis;
-import com.wrapper.spotify.model_objects.miscellaneous.CurrentlyPlayingContext;
-import com.wrapper.spotify.model_objects.specification.AudioFeatures;
-import com.wrapper.spotify.model_objects.specification.Image;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.beans.property.BooleanProperty;
@@ -21,6 +16,10 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ObservableStringValue;
 import javafx.util.Pair;
+import se.michaelthelin.spotify.model_objects.miscellaneous.AudioAnalysis;
+import se.michaelthelin.spotify.model_objects.miscellaneous.CurrentlyPlayingContext;
+import se.michaelthelin.spotify.model_objects.specification.AudioFeatures;
+import se.michaelthelin.spotify.model_objects.specification.Image;
 import synesthesia.direct.TableViewPair;
 
 /**
@@ -129,8 +128,7 @@ public class PlayingData {
     }
 
     public Image getImageAutomod(int albIdx) {
-        return playingContext.get().getItem().getAlbum().getImages()[albIdx % playingContext.
-                get().getItem().getAlbum().getImages().length];
+        return getImage(albIdx % this.images.get().length);
     }
 
     public ObjectProperty<Image[]> getImages() {

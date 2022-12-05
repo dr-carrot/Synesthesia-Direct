@@ -5,8 +5,8 @@
  */
 package spotify;
 
-import com.wrapper.spotify.model_objects.specification.Track;
 import javafx.beans.property.SimpleObjectProperty;
+import se.michaelthelin.spotify.model_objects.specification.Track;
 
 /**
  *
